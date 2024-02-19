@@ -1,4 +1,5 @@
 import "./App.css";
+import { Fragment, useState } from "react";
 
 import data from "./data.json";
 
@@ -8,6 +9,7 @@ let myData = data.map((each) => ({
 }));
 
 function App() {
+  const [showText, setShowText] = useState(false);
   return (
     <div className="main d-flex flex-column" id="top">
       <nav className="p-3 d-flex flex-row align-items-center justify-content-between">
@@ -28,8 +30,21 @@ function App() {
             dolorem qui, pariatur ipsum cupiditate laboriosam dicta obcaecati,
             aliquid iste accusantium facere. Aliquid, suscipit porro? Nisi
             debitis in omnis nostrum sed? Maxime!
+            {showText && (
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Praesentium facilis blanditiis quod nisi doloremque, consequatur
+                sed, repudiandae recusandae a eum beatae at dicta eaque error
+                perferendis iste quasi provident aspernatur.
+              </p>
+            )}
           </p>
-          <button className="btn btn-light"> Read More </button>
+          <button
+            className="btn btn-light"
+            onClick={() => setShowText((p) => !p)}>
+            {" "}
+            {showText ? "Less more" : "Read more"}
+          </button>
         </section>
         <section className="d-flex flex-column">
           <div className="align-self-center text-center p-3">
